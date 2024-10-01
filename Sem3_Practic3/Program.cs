@@ -27,7 +27,7 @@ namespace Sem3_Practic3
             }
             arrayList.Add("Hello World");
             arrayList.RemoveAt(0);
-            arrayList.Add(15);
+            arrayList.Add(14.1);
 
             Console.WriteLine($"Count: {arrayList.Count}");
             for (int i = 0; i < arrayList.Count; i++)
@@ -36,11 +36,16 @@ namespace Sem3_Practic3
             }
 
             Console.WriteLine("\nEnter the item you want to find:");
-            object itemInList = Console.ReadLine();
+            string itemInList = Console.ReadLine();
             int itemInListInt;
-            if (int.TryParse((string)itemInList, out itemInListInt))
+            double itemInListDouble;
+            if (int.TryParse(itemInList, out itemInListInt))
             {
                 Console.WriteLine(arrayList.Contains(itemInListInt));
+            }
+            else if(double.TryParse(itemInList, out itemInListDouble))
+            {
+                Console.WriteLine(arrayList.Contains(itemInListDouble));
             }
             else
             {
