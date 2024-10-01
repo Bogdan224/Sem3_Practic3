@@ -11,10 +11,10 @@ namespace Sem3_Practic3
     {
         static void Main(string[] args)
         {
-            //Task1();
+            Task1();
             //Task2();
             //Task3();
-            Task4();
+            //Task4();
         }
 
         static void Task1()
@@ -37,12 +37,15 @@ namespace Sem3_Practic3
 
             Console.WriteLine("\nEnter the item you want to find:");
             object itemInList = Console.ReadLine();
-            try
+            int itemInListInt;
+            if (int.TryParse((string)itemInList, out itemInListInt))
             {
-                itemInList = Convert.ToInt32(itemInList);
+                Console.WriteLine(arrayList.Contains(itemInListInt));
             }
-            catch { }
-            Console.WriteLine(arrayList.Contains(itemInList));
+            else
+            {
+                Console.WriteLine(arrayList.Contains(itemInList));
+            }
         }
 
         static void Task2()
@@ -145,7 +148,7 @@ namespace Sem3_Practic3
                 new ComputerDevice("Apple", "IPhone 15 Pro", 2022, 1000)
             };
             computerDevices.CollectionChanged += ComputerDevice_CollectionChanged;
-            
+
             Console.WriteLine("Items in observable collection:");
             foreach (var item in computerDevices)
             {
